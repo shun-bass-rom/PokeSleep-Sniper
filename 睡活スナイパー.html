@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポケスリ 睡活スナイパー</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 12px;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .header p {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 1024px) {
+            .header {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+                margin-bottom: 8px;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 18px 12px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+                margin-bottom: 6px;
+            }
+
+            .header p {
+                font-size: 11px;
+                margin-bottom: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px 10px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+
+            .header p {
+                font-size: 10px;
+                margin-bottom: 4px;
+            }
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .content {
+                padding: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 8px;
+            }
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1024px) {
+            .section {
+                margin-bottom: 25px;
+            }
+
+            .section h2 {
+                font-size: 16px;
+                margin-bottom: 12px;
+                border-bottom: 2px solid #667eea;
+                padding-bottom: 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                margin-bottom: 20px;
+            }
+
+            .section h2 {
+                font-size: 15px;
+                margin-bottom: 10px;
+                padding-bottom: 7px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                margin-bottom: 18px;
+            }
+
+            .section h2 {
+                font-size: 14px;
+                margin-bottom: 10px;
+                border-bottom: 2px solid #667eea;
+                padding-bottom: 6px;
+            }
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            width: 100%;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        /* セクション1用の特別なスタイル */
+        .section:first-of-type .input-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .section:first-of-type .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section:first-of-type .input-group label {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .input-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 6px;
+            }
+
+            .input-group input {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .input-group label {
+                font-size: 10px;
+                margin-bottom: 3px;
+            }
+
+            .section:first-of-type .input-group label {
+                font-size: 11px;
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .input-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 4px;
+            }
+
+            .input-group input {
+                padding: 6px 4px;
+                font-size: 11px;
+                border: 2px solid #ddd;
+            }
+
+            .input-group label {
+                font-size: 9px;
+                margin-bottom: 2px;
+                font-weight: 700;
+            }
+
+            .section:first-of-type .input-group label {
+                font-size: 10px;
+                margin-bottom: 4px;
+                text-align: center;
+            }
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            width: 100%;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .input-group input {
+                padding: 8px;
+                font-size: 12px;
+            }
+
+            .input-group label {
+                font-size: 10px;
+                margin-bottom: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .input-group input {
+                padding: 6px 4px;
+                font-size: 11px;
+                border: 2px solid #ddd;
+                width: 100%;
+            }
+
+            .input-group label {
+                font-size: 9px;
+                margin-bottom: 2px;
+                font-weight: 700;
+            }
+        }
+
+        /* セクション1のカラーバリエーション */
+        .input-group.utouto input {
+            border-color: #FFD700;
+            background-color: #fffcf0;
+        }
+
+        .input-group.suyasuya input {
+            border-color: #87CEEB;
+            background-color: #f0faff;
+        }
+
+        .input-group.gussuri input {
+            border-color: #1E90FF;
+            background-color: #f0f7ff;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* セクション1のボタングループを横並びに */
+        .section:first-of-type .button-group {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .button-group {
+                gap: 6px;
+            }
+
+            .section:first-of-type .button-group {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        .today-date {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+            padding: 10px 12px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .today-date {
+                font-size: 11px;
+                padding: 8px 10px;
+                min-width: 35px;
+            }
+
+            .section:first-of-type button {
+                flex: 1;
+                min-width: 200px;
+            }
+        }
+
+        button {
+            padding: 10px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        @media (max-width: 480px) {
+            button {
+                padding: 8px 12px;
+                font-size: 12px;
+                min-width: 100px;
+            }
+
+            .input-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .button-group {
+                gap: 6px;
+            }
+
+            .today-date {
+                font-size: 11px;
+                min-width: 35px;
+                padding: 8px 5px;
+            }
+
+            .section h2 {
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .content {
+                padding: 12px;
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-success {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #45a049;
+        }
+
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #da190b;
+        }
+
+        .btn-info {
+            background: #2196F3;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background: #0b7dda;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #1565c0;
+            line-height: 1.5;
+        }
+
+        .history-input-container {
+            background: #f9f9f9;
+            padding: 0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            max-height: 600px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .history-input-container {
+                max-height: 500px;
+                overflow-x: hidden;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .history-input-container {
+                max-height: 400px;
+                overflow-x: hidden;
+            }
+        }
+
+        .history-input-row {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 10px;
+            padding: 12px;
+            background: white;
+            border-bottom: 1px solid #eee;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+            align-items: flex-end;
+            margin-bottom: 8px;
+        }
+
+        .history-input-field {
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .history-input-field label {
+            font-size: 10px;
+            font-weight: 700;
+            color: #555;
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        .history-input-field input {
+            padding: 8px 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1;
+            height: auto;
+        }
+
+        .history-input-field select {
+            padding: 8px 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1;
+            height: auto;
+        }
+
+        /* 日付入力欄のみ幅を制限 */
+        .history-date-input {
+            max-width: 50px;
+        }
+
+        @media (min-width: 1025px) {
+            .history-input-row {
+                flex-wrap: nowrap;
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .history-input-field {
+                flex: 0 0 auto;
+            }
+
+            .history-input-field:nth-child(2) {
+                min-width: 90px;
+            }
+
+            .history-input-field:nth-child(3),
+            .history-input-field:nth-child(4),
+            .history-input-field:nth-child(5) {
+                min-width: 150px;
+            }
+
+            .history-input-field label {
+                font-size: 10px;
+            }
+
+            .history-input-field input {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .history-input-field select {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .history-date-input {
+                max-width: 120px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .history-input-row {
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .history-input-field {
+                flex: 0 0 auto;
+            }
+
+            .history-input-field:nth-child(2) {
+                min-width: 75px;
+            }
+
+            .history-input-field:nth-child(3),
+            .history-input-field:nth-child(4),
+            .history-input-field:nth-child(5) {
+                min-width: 125px;
+            }
+
+            .history-input-field label {
+                font-size: 9px;
+            }
+
+            .history-input-field input {
+                padding: 7px 9px;
+                font-size: 12px;
+            }
+
+            .history-input-field select {
+                padding: 7px 9px;
+                font-size: 12px;
+            }
+
+            .history-date-input {
+                max-width: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .history-input-row {
+                gap: 4px;
+                padding: 6px;
+            }
+
+            .history-input-field {
+                flex: 0 0 auto;
+            }
+
+            .history-input-field:nth-child(2) {
+                min-width: 55px;
+            }
+
+            .history-input-field:nth-child(3),
+            .history-input-field:nth-child(4),
+            .history-input-field:nth-child(5) {
+                min-width: 100px;
+            }
+
+            .history-input-field label {
+                font-size: 8px;
+                margin-bottom: 1px;
+            }
+
+            .history-input-field input {
+                padding: 4px 5px;
+                font-size: 10px;
+            }
+
+            .history-input-field select {
+                padding: 4px 5px;
+                font-size: 10px;
+            }
+
+            .history-date-input {
+                max-width: 84px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .history-input-row {
+                gap: 2px;
+                padding: 3px;
+            }
+
+            .history-input-field {
+                flex: 0 0 auto;
+            }
+
+            .history-input-field:nth-child(2) {
+                min-width: 50px;
+            }
+
+            .history-input-field:nth-child(3),
+            .history-input-field:nth-child(4),
+            .history-input-field:nth-child(5) {
+                min-width: 50px;
+            }
+
+            .history-input-field label {
+                font-size: 5px;
+                margin-bottom: 1px;
+                line-height: 1;
+            }
+
+            /* 分割欄のラベルを5px */
+            .history-input-field:nth-child(2) label {
+                font-size: 5px;
+            }
+
+            .history-input-field input {
+                padding: 2px 1px;
+                font-size: 7px;
+                border: 1px solid #ddd;
+            }
+
+            .history-input-field select {
+                padding: 2px 1px;
+                font-size: 6px;
+                border: 1px solid #ddd;
+            }
+
+            /* 分割セレクトを7px */
+            .history-input-field:nth-child(2) select {
+                font-size: 7px;
+            }
+
+            .history-date-input {
+                max-width: 60px;
+            }
+        }
+
+        .history-input-row:last-child {
+            border-bottom: none;
+        }
+
+        .history-input-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .history-input-field label {
+            font-size: 10px;
+            font-weight: 700;
+            color: #555;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 600px) {
+            .history-input-field label {
+                font-size: 7px;
+                margin-bottom: 1px;
+                font-weight: 700;
+                color: #666;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .history-input-field label {
+                font-size: 7px;
+                margin-bottom: 1px;
+                font-weight: 700;
+                color: #666;
+            }
+        }
+
+        .history-input-field input {
+            padding: 8px 10px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1;
+            height: auto;
+        }
+
+        @media (max-width: 1024px) {
+            .history-input-field label {
+                font-size: 9px;
+                margin-bottom: 2px;
+            }
+
+            .history-input-field input {
+                padding: 7px 9px;
+                font-size: 13px;
+                line-height: 1;
+                height: auto;
+            }
+
+            .history-input-field select {
+                padding: 7px 9px;
+                font-size: 13px;
+                line-height: 1;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .history-input-field label {
+                font-size: 8px;
+                margin-bottom: 1px;
+            }
+
+            .history-input-field input {
+                padding: 6px 8px;
+                font-size: 12px;
+                line-height: 1;
+                height: auto;
+            }
+
+            .history-input-field select {
+                padding: 6px 8px;
+                font-size: 12px;
+                line-height: 1;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .history-input-field label {
+                font-size: 7px;
+                margin-bottom: 1px;
+                font-weight: 700;
+            }
+
+            .history-input-field input {
+                padding: 5px 4px;
+                font-size: 13px;
+                border: 1px solid #ddd;
+                width: 100%;
+                line-height: 1;
+                height: auto;
+            }
+
+            .history-input-field select {
+                padding: 5px 4px;
+                font-size: 12px;
+                border: 1px solid #9b97cc;
+                width: 100%;
+                line-height: 1;
+                height: auto;
+            }
+        }
+
+        .history-input-field select {
+            padding: 8px 10px;
+            border: 2px solid #9b97cc;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            background: #f3f0f9;
+            cursor: pointer;
+            color: #333;
+            font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: auto;
+            line-height: 1;
+        }
+
+        .history-input-field select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+
+        /* セクション2のカラーバリエーション */
+        .history-input-field .history-date-input {
+            border-color: #ddd;
+            background-color: #ffffff;
+        }
+
+        .history-input-field .history-split {
+            font-size: 13px;
+        }
+
+        @media (max-width: 480px) {
+            .history-input-field .history-split {
+                font-size: 12px;
+            }
+        }
+
+        .history-input-field .history-utouto {
+            border-color: #FFD700;
+            background-color: #fffcf0;
+        }
+
+        .history-input-field .history-suyasuya {
+            border-color: #87CEEB;
+            background-color: #f0faff;
+        }
+
+        .history-input-field .history-gussuri {
+            border-color: #1E90FF;
+            background-color: #f0f7ff;
+        }
+
+        .history-date-display {
+            padding: 4px 4px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 10px;
+            background: #f9f9f9;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* ヘッダー削除 */
+        .history-grid-header {
+            display: none;
+        }
+
+        .backup-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .backup-modal.active {
+            display: flex;
+        }
+
+        .backup-modal-content {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .backup-modal-content h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .backup-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .backup-section h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .backup-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 12px;
+            font-family: monospace;
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .backup-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .close-modal {
+            margin-top: 15px;
+        }
+
+        .threshold-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .segment-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f0f0f0;
+            padding: 4px;
+        }
+
+        .segment-btn {
+            flex: 1;
+            padding: 12px 10px;
+            border: none;
+            background: transparent;
+            color: #666;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 6px;
+        }
+
+        .segment-btn.active {
+            background: white;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .segment-btn.utouto.active {
+            border-bottom: 3px solid #FFD700;
+            color: #FFD700;
+        }
+
+        .segment-btn.suyasuya.active {
+            border-bottom: 3px solid #87CEEB;
+            color: #87CEEB;
+        }
+
+        .segment-btn.gussuri.active {
+            border-bottom: 3px solid #1E90FF;
+            color: #1E90FF;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .segment-btn {
+                padding: 8px 6px;
+                font-size: 11px;
+                min-width: 60px;
+            }
+
+            .segment-buttons {
+                gap: 4px;
+                padding: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .segment-btn {
+                padding: 6px 4px;
+                font-size: 10px;
+                min-width: 50px;
+            }
+
+            .segment-buttons {
+                gap: 2px;
+                padding: 2px;
+            }
+        }
+
+        .threshold-display-container {
+            display: none;
+        }
+
+        .threshold-display-container.active {
+            display: block;
+        }
+
+        .threshold-box {
+            background: white;
+            border: 3px solid;
+            padding: 20px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+        }
+
+        .threshold-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .threshold-box.utouto {
+            border-color: #FFD700;
+        }
+
+        .threshold-box.utouto.active {
+            background: #fffacd;
+        }
+
+        .threshold-box.suyasuya {
+            border-color: #87CEEB;
+        }
+
+        .threshold-box.suyasuya.active {
+            background: #e0f7ff;
+        }
+
+        .threshold-box.gussuri {
+            border-color: #1E90FF;
+        }
+
+        .threshold-box.gussuri.active {
+            background: #e6f2ff;
+        }
+
+        .threshold-box h3 {
+            font-size: 13px;
+            margin-bottom: 12px;
+            color: #333;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .threshold-display {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .time-display {
+            margin: 12px 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .time-unit-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time-number {
+            font-size: 52px;
+            font-weight: bold;
+            color: #ff6b6b;
+            line-height: 1;
+        }
+
+        .time-unit {
+            font-size: 10px;
+            color: #ff6b6b;
+            font-weight: 700;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 480px) {
+            .threshold-box {
+                min-height: 160px;
+                padding: 15px 12px;
+            }
+
+            .threshold-box h3 {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            .time-display {
+                margin: 8px 0;
+                gap: 10px;
+            }
+
+            .time-number {
+                font-size: 40px;
+            }
+
+            .time-unit {
+                font-size: 9px;
+                margin-top: 2px;
+            }
+
+            .threshold-percent-small {
+                font-size: 13px;
+            }
+
+            .threshold-avg-text {
+                font-size: 9px;
+            }
+
+            .time-above {
+                font-size: 14px;
+            }
+        }
+
+        .threshold-percent-small {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: 700;
+            margin: 6px 0;
+        }
+
+        .threshold-avg-text {
+            font-size: 10px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .time-above {
+            font-size: 16px;
+            color: #ff6b6b;
+            font-weight: 700;
+        }
+
+        /* スマートフォン対応 */
+        @media (min-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px 20px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+                margin-bottom: 10px;
+            }
+
+            .header p {
+                font-size: 11px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 17px;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+
+            .button-group {
+                gap: 10px;
+            }
+
+            button {
+                padding: 12px 20px;
+                font-size: 14px;
+                flex: none;
+                min-width: auto;
+            }
+
+            .today-date {
+                font-size: 13px;
+                min-width: 90px;
+            }
+
+            .history-grid-header {
+                grid-template-columns: 0.5fr 1fr 1fr 1fr;
+                font-size: 12px;
+            }
+
+            .history-input-row {
+                grid-template-columns: 0.5fr 1fr 1fr 1fr;
+                padding: 10px;
+            }
+
+            .threshold-box {
+                min-height: 280px;
+            }
+
+            .threshold-box h3 {
+                font-size: 15px;
+            }
+
+            .time-number {
+                font-size: 56px;
+            }
+
+            .time-unit {
+                font-size: 11px;
+            }
+
+            .threshold-percent-small {
+                font-size: 16px;
+            }
+
+            .threshold-avg-text {
+                font-size: 11px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 1200px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .section h2 {
+                font-size: 18px;
+            }
+
+            button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .today-date {
+                font-size: 14px;
+                min-width: 100px;
+            }
+
+            .threshold-box {
+                min-height: 320px;
+            }
+
+            .threshold-box h3 {
+                font-size: 16px;
+            }
+
+            .time-number {
+                font-size: 64px;
+            }
+
+            .time-unit {
+                font-size: 12px;
+            }
+
+            .threshold-percent-small {
+                font-size: 18px;
+            }
+
+            .threshold-avg-text {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>うとうと・すやすや・ぐっすり　を狙い撃ち</p>
+            <h1>🌙 ポケスリ 睡活スナイパー</h1>
+        </div>
+
+        <div class="content">
+            <!-- 1. 今日のデータ入力セクション -->
+            <div class="section">
+                <h2>📅 1. 今日の睡眠データを入力</h2>
+                <div class="info-box">
+                    💡 今日計測した睡眠データを入力してください。保存されると過去30回のデータに追加されます。
+                </div>
+
+                <div class="input-grid">
+                    <div class="input-group utouto">
+                        <label>うとうと %</label>
+                        <input type="number" id="todayUtouto" min="0" max="100" value="0" placeholder="0">
+                    </div>
+                    <div class="input-group suyasuya">
+                        <label>すやすや %</label>
+                        <input type="number" id="todaySuyasuya" min="0" max="100" value="0" placeholder="0">
+                    </div>
+                    <div class="input-group gussuri">
+                        <label>ぐっすり %</label>
+                        <input type="number" id="todayGussuri" min="0" max="100" value="0" placeholder="0">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <div class="today-date" id="todayDateDisplay">-</div>
+                    <button class="btn-success" onclick="saveTodayData()">✓ 今日のデータを保存</button>
+                </div>
+            </div>
+
+            <!-- 2. 過去30回のデータ手動入力セクション -->
+            <div class="section">
+                <h2>📈 2. 過去30回のデータを手動入力</h2>
+
+                <div class="history-input-container" id="historyInputContainer"></div>
+
+                <div class="button-group">
+                    <button class="btn-success" onclick="openBackupModal()">💾 バックアップ</button>
+                </div>
+            </div>
+
+            <!-- 3. 目標タイプ別の閾値計算セクション -->
+            <div class="section">
+                <h2>3. 狙うための最小時間</h2>
+                <div class="info-box">
+                    💡 睡眠タイプ＝(当日の各睡眠タイプの％)ー(過去30回の平均％) が一番大きい睡眠タイプ
+                </div>
+
+                <!-- 睡眠時間設定 -->
+                <div style="margin-bottom: 15px; padding: 12px; border-left: 4px solid #667eea; border-radius: 5px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <label style="font-size: 12px; font-weight: 600; color: #333;">睡眠時間：</label>
+                    <input type="number" id="maxSleepTime" min="1" max="24" step="0.5" value="8.5" placeholder="8.5" style="width: 70px; padding: 8px; border: 2px solid #667eea; border-radius: 4px; font-size: 14px;">
+                    <span style="font-size: 12px; color: #666;">時間</span>
+                    <button style="padding: 6px 12px; font-size: 12px; background: #f0f0f0; border: none; border-radius: 4px; cursor: pointer; color: #666; font-weight: 600;" onclick="resetSleepTime()">8.5に戻す</button>
+                </div>
+
+                <div id="thresholdContainer">
+                    <!-- セグメント選択ボタン -->
+                    <div class="segment-buttons">
+                        <button class="segment-btn utouto active" onclick="switchThresholdDisplay('utouto')">うとうと</button>
+                        <button class="segment-btn suyasuya" onclick="switchThresholdDisplay('suyasuya')">すやすや</button>
+                        <button class="segment-btn gussuri" onclick="switchThresholdDisplay('gussuri')">ぐっすり</button>
+                    </div>
+
+                    <!-- うとうと表示 -->
+                    <div class="threshold-display-container active" id="containerUtouto">
+                        <div class="threshold-box utouto">
+                            <h3>狙い：うとうと<br><span style="font-size: 11px; color: #666; font-weight: normal;">うとうと時間を、</span></h3>
+                            <div class="threshold-display" id="displayUtouto"></div>
+                        </div>
+                    </div>
+
+                    <!-- すやすや表示 -->
+                    <div class="threshold-display-container" id="containerSuyasuya">
+                        <div class="threshold-box suyasuya">
+                            <h3>狙い：すやすや<br><span style="font-size: 11px; color: #666; font-weight: normal;">すやすや時間を、</span></h3>
+                            <div class="threshold-display" id="displaySuyasuya"></div>
+                        </div>
+                    </div>
+
+                    <!-- ぐっすり表示 -->
+                    <div class="threshold-display-container" id="containerGussuri">
+                        <div class="threshold-box gussuri">
+                            <h3>狙い：ぐっすり<br><span style="font-size: 11px; color: #666; font-weight: normal;">ぐっすり時間を、</span></h3>
+                            <div class="threshold-display" id="displayGussuri"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 20px; font-size: 10px; color: #999; border-top: 1px solid #eee;">
+        ※本ツールはポケスリのファンによる非公式ツールであり、製作者は一切の責任を負いません。
+    </div>
+
+    <!-- バックアップモーダル -->
+    <div class="backup-modal" id="backupModal">
+        <div class="backup-modal-content">
+            <h3>
+                💾 バックアップ管理
+                <button class="close-button" onclick="closeBackupModal()">×</button>
+            </h3>
+
+            <!-- バックアップ作成 -->
+            <div class="backup-section">
+                <h4>📝 バックアップ用テキストを作成</h4>
+                <p style="font-size: 11px; color: #666; margin-bottom: 10px;">
+                    現在のデータをテキスト形式で保存します。このテキストをコピーして安全に保管してください。
+                </p>
+                <button class="btn-success" style="width: 100%;" onclick="createBackup()">💾 バックアップを作成</button>
+                <textarea class="backup-textarea" id="backupText" readonly placeholder="バックアップテキストがここに表示されます"></textarea>
+                <button class="btn-primary" style="width: 100%;" onclick="copyBackupText()">📋 テキストをコピー</button>
+            </div>
+
+            <!-- 復旧 -->
+            <div class="backup-section">
+                <h4>📂 テキストから復旧</h4>
+                <p style="font-size: 11px; color: #666; margin-bottom: 10px;">
+                    保存していたバックアップテキストを貼り付けて、データを復旧します。
+                </p>
+                <textarea class="backup-textarea" id="restoreText" placeholder="バックアップテキストを貼り付けてください"></textarea>
+                <button class="btn-primary" style="width: 100%;" onclick="restoreBackup()">復旧する</button>
+            </div>
+
+            <!-- 閉じるボタン -->
+            <button class="btn-secondary close-modal" style="width: 100%;" onclick="closeBackupModal()">閉じる</button>
+        </div>
+    </div>
+
+    <script>
+        let historyData = [];
+        let selectedType = 'utouto'; // デフォルトはうとうと
+        let MAX_SLEEP_TIME = 8.5; // 8.5時間を100%とする（デフォルト）
+
+        // LocalStorageからデータを読み込む
+        window.addEventListener('DOMContentLoaded', function() {
+            updateTodayDate();
+            loadHistoryFromStorage();
+            initializeHistoryRows();
+            
+            // MAX時間の変更イベント
+            document.getElementById('maxSleepTime').addEventListener('change', function() {
+                MAX_SLEEP_TIME = parseFloat(this.value) || 8.5;
+                updateAllThresholds();
+            });
+            
+            // サンプルデータが設定されている場合は更新
+            if (historyData.length === 0) {
+                updateHistoryData();
+            }
+            
+            updateAllThresholds();
+            // デフォルトでうとうとを選択
+            selectThresholdType('utouto');
+            
+            // モーダルの外側をクリックして閉じる
+            const backupModal = document.getElementById('backupModal');
+            if (backupModal) {
+                backupModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeBackupModal();
+                    }
+                });
+            }
+        });
+
+        function updateTodayDate() {
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            const dateStr = `日付：${month}/${day}`;
+            document.getElementById('todayDateDisplay').textContent = dateStr;
+        }
+
+        function resetSleepTime() {
+            document.getElementById('maxSleepTime').value = 8.5;
+            MAX_SLEEP_TIME = 8.5;
+            updateAllThresholds();
+        }
+
+        // adjustHistoryGridWidth関数は不要になったので削除（2行構成に変更）
+
+        function generateDateStrings() {
+            const dates = [];
+            const today = new Date();
+
+            // 今日から30日前までを逆順で生成（1番目が今日）
+            for (let i = 0; i < 30; i++) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                const month = date.getMonth() + 1;
+                const day = date.getDate();
+                dates.push(`${month}/${day}`);
+            }
+
+            return dates;
+        }
+
+        function percentToTime(percent) {
+            const hours = (percent / 100) * MAX_SLEEP_TIME;
+            const h = Math.floor(hours);
+            const m = Math.round((hours - h) * 60);
+            return { h, m, hours };
+        }
+
+        function initializeHistoryRows() {
+            const container = document.getElementById('historyInputContainer');
+            container.innerHTML = '';
+
+            const dates = generateDateStrings();
+
+            // 30行作成
+            for (let i = 0; i < 30; i++) {
+                // 最初の行（i=0、つまり今日）にはサンプルデータを設定
+                let data;
+                if (i === 0 && historyData.length === 0) {
+                    data = { utouto: 40, suyasuya: 40, gussuri: 20, split: '一括' };
+                } else {
+                    data = historyData[i] || { utouto: '', suyasuya: '', gussuri: '', split: '一括' };
+                }
+                
+                const row = document.createElement('div');
+                row.className = 'history-input-row';
+                
+                row.innerHTML = `
+                    <div class="history-input-field">
+                        <label>日付${i + 1}</label>
+                        <input type="text" class="history-date-input" value="${dates[i]}" placeholder="M/D" data-index="${i}">
+                    </div>
+                    <div class="history-input-field">
+                        <label>分割</label>
+                        <select class="history-split" data-index="${i}">
+                            <option value="一括" ${data.split === '一括' ? 'selected' : ''}>一括</option>
+                            <option value="分割①" ${data.split === '分割①' ? 'selected' : ''}>分割①</option>
+                            <option value="分割②" ${data.split === '分割②' ? 'selected' : ''}>分割②</option>
+                        </select>
+                    </div>
+                    <div class="history-input-field">
+                        <label>うとうと %</label>
+                        <input type="number" class="history-utouto" min="0" max="100" placeholder="0" value="${data.utouto}" data-index="${i}">
+                    </div>
+                    <div class="history-input-field">
+                        <label>すやすや %</label>
+                        <input type="number" class="history-suyasuya" min="0" max="100" placeholder="0" value="${data.suyasuya}" data-index="${i}">
+                    </div>
+                    <div class="history-input-field">
+                        <label>ぐっすり %</label>
+                        <input type="number" class="history-gussuri" min="0" max="100" placeholder="0" value="${data.gussuri}" data-index="${i}">
+                    </div>
+                `;
+                container.appendChild(row);
+            }
+
+            // イベントリスナー追加
+            document.querySelectorAll('.history-utouto, .history-suyasuya, .history-gussuri, .history-split').forEach(input => {
+                input.addEventListener('change', updateHistoryData);
+                input.addEventListener('input', updateHistoryData);
+            });
+        }
+
+        function updateHistoryData() {
+            const dates = generateDateStrings();
+            historyData = [];
+            let hasData = false;
+
+            document.querySelectorAll('.history-utouto').forEach((utoutInput, index) => {
+                const utouto = parseInt(utoutInput.value) || 0;
+                const suyasuya = parseInt(document.querySelectorAll('.history-suyasuya')[index].value) || 0;
+                const gussuri = parseInt(document.querySelectorAll('.history-gussuri')[index].value) || 0;
+                const split = document.querySelectorAll('.history-split')[index] ? 
+                    document.querySelectorAll('.history-split')[index].value : '一括';
+
+                if (utouto > 0 || suyasuya > 0 || gussuri > 0) {
+                    historyData.push({
+                        date: dates[index],
+                        utouto: utouto,
+                        suyasuya: suyasuya,
+                        gussuri: gussuri,
+                        split: split
+                    });
+                    hasData = true;
+                }
+            });
+
+            saveHistoryToStorage();
+            if (hasData) {
+                updateAllThresholds();
+            }
+        }
+
+        function saveTodayData() {
+            const u = parseFloat(document.getElementById('todayUtouto').value) || 0;
+            const s = parseFloat(document.getElementById('todaySuyasuya').value) || 0;
+            const g = parseFloat(document.getElementById('todayGussuri').value) || 0;
+
+            if (u === 0 && s === 0 && g === 0) {
+                alert('0以外のデータを入力してください');
+                return;
+            }
+
+            if (Math.abs((u + s + g) - 100) > 0.1) {
+                const result = confirm('合計が100%になっていません。\n合計: ' + (u + s + g).toFixed(1) + '%\n\n保存しますか？');
+                if (!result) return;
+            }
+
+            // 最初の行に挿入
+            if (document.querySelector('.history-utouto')) {
+                document.querySelector('.history-utouto').value = u;
+                document.querySelector('.history-suyasuya').value = s;
+                document.querySelector('.history-gussuri').value = g;
+            }
+
+            updateHistoryData();
+
+            // 入力をクリア
+            document.getElementById('todayUtouto').value = '';
+            document.getElementById('todaySuyasuya').value = '';
+            document.getElementById('todayGussuri').value = '';
+
+            alert('データを保存しました！');
+        }
+
+        function selectThresholdType(type) {
+            selectedType = type;
+            switchThresholdDisplay(type);
+        }
+
+        function switchThresholdDisplay(type) {
+            // すべてのセグメントボタンのアクティブ状態を削除
+            document.querySelectorAll('.segment-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // すべてのディスプレイコンテナを非表示
+            document.querySelectorAll('.threshold-display-container').forEach(container => {
+                container.classList.remove('active');
+            });
+
+            // 対応するボタンをアクティブに（typeから）
+            const typeMap = { 'utouto': 'Utouto', 'suyasuya': 'Suyasuya', 'gussuri': 'Gussuri' };
+            const buttons = document.querySelectorAll('.segment-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes(type === 'utouto' ? 'うとうと' : type === 'suyasuya' ? 'すやすや' : 'ぐっすり')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 対応するコンテナを表示
+            document.getElementById(`container${type.charAt(0).toUpperCase() + type.slice(1)}`).classList.add('active');
+
+            selectedType = type;
+        }
+
+        // バックアップ機能
+        function openBackupModal() {
+            document.getElementById('backupModal').classList.add('active');
+        }
+
+        function closeBackupModal() {
+            document.getElementById('backupModal').classList.remove('active');
+            document.getElementById('backupText').value = '';
+            document.getElementById('restoreText').value = '';
+        }
+
+        function createBackup() {
+            // 現在のデータを取得
+            const allData = [];
+            const dateInputs = document.querySelectorAll('.history-date-input');
+            const splitInputs = document.querySelectorAll('.history-split');
+            const utouInput = document.querySelectorAll('.history-utouto');
+            const suyasuyaInputs = document.querySelectorAll('.history-suyasuya');
+            const gussiriInputs = document.querySelectorAll('.history-gussuri');
+
+            for (let i = 0; i < 30; i++) {
+                try {
+                    const date = dateInputs[i] ? dateInputs[i].value : '';
+                    const split = splitInputs[i] ? splitInputs[i].value : '一括';
+                    const utouto = utouInput[i] ? (parseInt(utouInput[i].value) || 0) : 0;
+                    const suyasuya = suyasuyaInputs[i] ? (parseInt(suyasuyaInputs[i].value) || 0) : 0;
+                    const gussuri = gussiriInputs[i] ? (parseInt(gussiriInputs[i].value) || 0) : 0;
+                    allData.push([date, split, utouto, suyasuya, gussuri]);
+                } catch (e) {
+                    console.error('Row ' + i + ' error:', e);
+                    allData.push(['', '一括', 0, 0, 0]);
+                }
+            }
+
+            try {
+                // JSON形式で作成
+                const backupData = JSON.stringify(allData);
+                
+                // UTF-8をBase64エンコード（日本語対応）
+                const utf8Data = unescape(encodeURIComponent(backupData));
+                const encrypted = btoa(utf8Data);
+                
+                document.getElementById('backupText').value = encrypted;
+                alert('バックアップテキストを作成しました！');
+            } catch (e) {
+                alert('バックアップの作成に失敗しました。');
+                console.error('Backup error:', e);
+            }
+        }
+
+        function copyBackupText() {
+            const text = document.getElementById('backupText');
+            if (!text.value) {
+                alert('バックアップテキストが空です。先に「バックアップを作成」してください。');
+                return;
+            }
+            
+            text.select();
+            document.execCommand('copy');
+            alert('テキストをコピーしました！');
+        }
+
+        function restoreBackup() {
+            const encryptedText = document.getElementById('restoreText').value.trim();
+            
+            if (!encryptedText) {
+                alert('バックアップテキストを貼り付けてください。');
+                return;
+            }
+
+            try {
+                // Base64デコード（UTF-8対応）
+                const utf8Data = atob(encryptedText);
+                const decrypted = decodeURIComponent(escape(utf8Data));
+                const allData = JSON.parse(decrypted);
+
+                if (!Array.isArray(allData) || allData.length !== 30) {
+                    alert('無効なバックアップテキストです。');
+                    return;
+                }
+
+                // データ取得
+                const dateInputs = document.querySelectorAll('.history-date-input');
+                const splitInputs = document.querySelectorAll('.history-split');
+                const utouInputs = document.querySelectorAll('.history-utouto');
+                const suyasuyaInputs = document.querySelectorAll('.history-suyasuya');
+                const gussiriInputs = document.querySelectorAll('.history-gussuri');
+
+                // データを復旧
+                for (let i = 0; i < 30; i++) {
+                    const item = allData[i];
+                    // 新形式：[date, split, utouto, suyasuya, gussuri]
+                    // 旧形式：[utouto, suyasuya, gussuri, split]
+                    let date, split, u, s, g;
+                    
+                    if (item.length === 5) {
+                        // 新形式
+                        [date, split, u, s, g] = item;
+                    } else {
+                        // 旧形式（互換性のため）
+                        [u, s, g, split] = item;
+                        date = '';
+                    }
+                    
+                    if (dateInputs[i]) {
+                        dateInputs[i].value = date || '';
+                    }
+                    if (splitInputs[i]) {
+                        splitInputs[i].value = split || '一括';
+                    }
+                    if (utouInputs[i]) {
+                        utouInputs[i].value = u || '';
+                    }
+                    if (suyasuyaInputs[i]) {
+                        suyasuyaInputs[i].value = s || '';
+                    }
+                    if (gussiriInputs[i]) {
+                        gussiriInputs[i].value = g || '';
+                    }
+                }
+
+                updateHistoryData();
+                alert('データを復旧しました！');
+                closeBackupModal();
+            } catch (e) {
+                alert('バックアップテキストの復旧に失敗しました。正しいテキストを貼り付けてください。');
+                console.error(e);
+            }
+        }
+
+        function updateAllThresholds() {
+            if (historyData.length === 0) {
+                return;
+            }
+
+            // 平均を計算
+            const average = {
+                utouto: historyData.reduce((sum, d) => sum + d.utouto, 0) / historyData.length,
+                suyasuya: historyData.reduce((sum, d) => sum + d.suyasuya, 0) / historyData.length,
+                gussuri: historyData.reduce((sum, d) => sum + d.gussuri, 0) / historyData.length
+            };
+
+            // 3つのタイプそれぞれについて計算
+            const thresholds = {
+                utouto: calculateThreshold('utouto', average),
+                suyasuya: calculateThreshold('suyasuya', average),
+                gussuri: calculateThreshold('gussuri', average)
+            };
+
+            // 表示を更新
+            displayAllThresholds(thresholds, average);
+        }
+
+        function calculateThreshold(targetType, average) {
+            const otherTypes = ['utouto', 'suyasuya', 'gussuri'].filter(t => t !== targetType);
+
+            // 他のタイプは平均の50%程度に設定
+            let thresholds = {};
+            
+            otherTypes.forEach(type => {
+                thresholds[type] = Math.max(0, average[type] * 0.5);
+            });
+
+            // 目標タイプに残りの値を配分
+            const otherSum = otherTypes.reduce((sum, type) => sum + thresholds[type], 0);
+            thresholds[targetType] = Math.max(1, 100 - otherSum);
+
+            // 四捨五入して整数にしつつ、合計が100%になるように調整
+            let roundedThresholds = {};
+            let roundedTotal = 0;
+            let typeList = ['utouto', 'suyasuya', 'gussuri'];
+
+            // 最初に全て四捨五入
+            typeList.forEach(type => {
+                roundedThresholds[type] = Math.round(thresholds[type]);
+                roundedTotal += roundedThresholds[type];
+            });
+
+            // 合計が100%になるように調整
+            let diff = 100 - roundedTotal;
+            if (diff !== 0) {
+                roundedThresholds[targetType] += diff;
+            }
+
+            return roundedThresholds;
+        }
+
+        function displayAllThresholds(allThresholds, average) {
+            const targetTypes = ['utouto', 'suyasuya', 'gussuri'];
+
+            // 各目標タイプの閾値を表示
+            targetTypes.forEach(targetType => {
+                const thresholds = allThresholds[targetType];
+                const minPercent = thresholds[targetType];
+                const currentAvg = Math.round(average[targetType]);
+                const timeData = percentToTime(minPercent);
+
+                const html = `
+                    <div class="time-display">
+                        <div class="time-unit-group">
+                            <div class="time-number">${timeData.h}</div>
+                            <div class="time-unit">時間</div>
+                        </div>
+                        <div class="time-unit-group">
+                            <div class="time-number">${timeData.m}</div>
+                            <div class="time-unit">分</div>
+                        </div>
+                        <div class="time-above">以上</div>
+                    </div>
+                    <div class="threshold-percent-small">${minPercent}%</div>
+                    <div class="threshold-avg-text">平均: ${currentAvg}%</div>
+                `;
+
+                document.getElementById(`display${targetType.charAt(0).toUpperCase() + targetType.slice(1)}`).innerHTML = html;
+            });
+        }
+
+        function saveHistoryToStorage() {
+            localStorage.setItem('pokemonSleepHistory', JSON.stringify(historyData));
+        }
+
+        function loadHistoryFromStorage() {
+            const stored = localStorage.getItem('pokemonSleepHistory');
+            if (stored) {
+                try {
+                    historyData = JSON.parse(stored);
+                } catch (e) {
+                    console.error('データの読み込みに失敗しました', e);
+                }
+            }
+        }
+
+        // adjustHistoryGridWidthのリスナーは不要になったので削除
+
+    </script>
+</body>
+</html>
