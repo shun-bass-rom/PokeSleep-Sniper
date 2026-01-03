@@ -201,50 +201,6 @@
             margin-bottom: 15px;
         }
 
-        .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-group label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .input-group input {
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-            width: 100%;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
-        }
-
-        /* セクション1用の特別なスタイル */
-        .section:first-of-type .input-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .section:first-of-type .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .section:first-of-type .input-group label {
-            text-align: center;
-            margin-bottom: 8px;
-        }
-
         @media (max-width: 768px) {
             .input-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -259,11 +215,6 @@
             .input-group label {
                 font-size: 10px;
                 margin-bottom: 3px;
-            }
-
-            .section:first-of-type .input-group label {
-                font-size: 11px;
-                margin-bottom: 5px;
             }
         }
 
@@ -283,12 +234,6 @@
                 font-size: 9px;
                 margin-bottom: 2px;
                 font-weight: 700;
-            }
-
-            .section:first-of-type .input-group label {
-                font-size: 10px;
-                margin-bottom: 4px;
-                text-align: center;
             }
         }
 
@@ -370,28 +315,8 @@
             align-items: center;
         }
 
-        /* セクション1のボタングループを横並びに */
-        .section:first-of-type .button-group {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 10px;
-        }
-
-        @media (max-width: 480px) {
-            .button-group {
-                gap: 6px;
-            }
-
-            .section:first-of-type .button-group {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-        }
-
         .today-date {
+            display: none;
             font-size: 12px;
             color: #666;
             font-weight: 600;
@@ -400,19 +325,6 @@
             border-radius: 5px;
             min-width: 40px;
             text-align: center;
-        }
-
-        @media (max-width: 480px) {
-            .today-date {
-                font-size: 11px;
-                padding: 8px 10px;
-                min-width: 35px;
-            }
-
-            .section:first-of-type button {
-                flex: 1;
-                min-width: 200px;
-            }
         }
 
         button {
@@ -545,228 +457,47 @@
         }
 
         .history-input-row {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 10px;
-            padding: 12px;
+            display: grid;
+            grid-template-columns: 0.6fr 0.6fr 1.5fr 1.5fr 1.5fr;
+            gap: 8px;
+            padding: 10px;
             background: white;
             border-bottom: 1px solid #eee;
-            border-radius: 5px;
-            border-left: 4px solid #667eea;
-            align-items: flex-end;
-            margin-bottom: 8px;
-        }
-
-        .history-input-field {
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0;
-        }
-
-        .history-input-field label {
-            font-size: 10px;
-            font-weight: 700;
-            color: #555;
-            margin-bottom: 2px;
-            line-height: 1.2;
-        }
-
-        .history-input-field input {
-            padding: 8px 10px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1;
-            height: auto;
-        }
-
-        .history-input-field select {
-            padding: 8px 10px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            transition: border-color 0.3s;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1;
-            height: auto;
-        }
-
-        /* 日付入力欄のみ幅を制限 */
-        .history-date-input {
-            max-width: 50px;
+            align-items: center;
         }
 
         @media (min-width: 1025px) {
             .history-input-row {
-                flex-wrap: nowrap;
-                gap: 12px;
-                padding: 12px;
-            }
-
-            .history-input-field {
-                flex: 0 0 auto;
-            }
-
-            .history-input-field:nth-child(2) {
-                min-width: 90px;
-            }
-
-            .history-input-field:nth-child(3),
-            .history-input-field:nth-child(4),
-            .history-input-field:nth-child(5) {
-                min-width: 150px;
-            }
-
-            .history-input-field label {
-                font-size: 10px;
-            }
-
-            .history-input-field input {
-                padding: 8px 10px;
-                font-size: 14px;
-            }
-
-            .history-input-field select {
-                padding: 8px 10px;
-                font-size: 14px;
-            }
-
-            .history-date-input {
-                max-width: 120px;
+                grid-template-columns: 0.6fr 0.6fr 1.5fr 1.5fr 1.5fr;
+                gap: 8px;
+                padding: 10px;
             }
         }
 
         @media (max-width: 1024px) {
             .history-input-row {
-                gap: 8px;
-                padding: 10px;
-            }
-
-            .history-input-field {
-                flex: 0 0 auto;
-            }
-
-            .history-input-field:nth-child(2) {
-                min-width: 75px;
-            }
-
-            .history-input-field:nth-child(3),
-            .history-input-field:nth-child(4),
-            .history-input-field:nth-child(5) {
-                min-width: 125px;
-            }
-
-            .history-input-field label {
-                font-size: 9px;
-            }
-
-            .history-input-field input {
-                padding: 7px 9px;
-                font-size: 12px;
-            }
-
-            .history-input-field select {
-                padding: 7px 9px;
-                font-size: 12px;
-            }
-
-            .history-date-input {
-                max-width: 100px;
+                grid-template-columns: 0.55fr 0.75fr 1.4fr 1.4fr 1.4fr;
+                gap: 6px;
+                padding: 8px;
+                align-items: center;
             }
         }
 
         @media (max-width: 768px) {
             .history-input-row {
-                gap: 4px;
+                grid-template-columns: 0.5fr 0.65fr 1.3fr 1.3fr 1.3fr;
+                gap: 5px;
                 padding: 6px;
-            }
-
-            .history-input-field {
-                flex: 0 0 auto;
-            }
-
-            .history-input-field:nth-child(2) {
-                min-width: 55px;
-            }
-
-            .history-input-field:nth-child(3),
-            .history-input-field:nth-child(4),
-            .history-input-field:nth-child(5) {
-                min-width: 100px;
-            }
-
-            .history-input-field label {
-                font-size: 8px;
-                margin-bottom: 1px;
-            }
-
-            .history-input-field input {
-                padding: 4px 5px;
-                font-size: 10px;
-            }
-
-            .history-input-field select {
-                padding: 4px 5px;
-                font-size: 10px;
-            }
-
-            .history-date-input {
-                max-width: 84px;
+                align-items: center;
             }
         }
 
         @media (max-width: 480px) {
             .history-input-row {
-                gap: 2px;
-                padding: 3px;
-            }
-
-            .history-input-field {
-                flex: 0 0 auto;
-            }
-
-            .history-input-field:nth-child(2) {
-                min-width: 50px;
-            }
-
-            .history-input-field:nth-child(3),
-            .history-input-field:nth-child(4),
-            .history-input-field:nth-child(5) {
-                min-width: 50px;
-            }
-
-            .history-input-field label {
-                font-size: 5px;
-                margin-bottom: 1px;
-                line-height: 1;
-            }
-
-            /* 分割欄のラベルを5px */
-            .history-input-field:nth-child(2) label {
-                font-size: 5px;
-            }
-
-            .history-input-field input {
-                padding: 2px 1px;
-                font-size: 7px;
-                border: 1px solid #ddd;
-            }
-
-            .history-input-field select {
-                padding: 2px 1px;
-                font-size: 6px;
-                border: 1px solid #ddd;
-            }
-
-            /* 分割セレクトを7px */
-            .history-input-field:nth-child(2) select {
-                font-size: 7px;
-            }
-
-            .history-date-input {
-                max-width: 60px;
+                grid-template-columns: 0.5fr 1fr 1.5fr 1.5fr 1.5fr;
+                gap: 3px;
+                padding: 5px;
+                align-items: center;
             }
         }
 
@@ -786,24 +517,6 @@
             margin-bottom: 2px;
             white-space: nowrap;
             line-height: 1.2;
-        }
-
-        @media (max-width: 600px) {
-            .history-input-field label {
-                font-size: 7px;
-                margin-bottom: 1px;
-                font-weight: 700;
-                color: #666;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .history-input-field label {
-                font-size: 7px;
-                margin-bottom: 1px;
-                font-weight: 700;
-                color: #666;
-            }
         }
 
         .history-input-field input {
@@ -1448,7 +1161,7 @@
 
                 <div class="button-group">
                     <div class="today-date" id="todayDateDisplay">-</div>
-                    <button class="btn-success" onclick="saveTodayData()">✓ 今日のデータを保存</button>
+                    <button class="btn-success" onclick="saveTodayData()">✓ 新しいデータを保存</button>
                 </div>
             </div>
 
@@ -1467,7 +1180,7 @@
             <div class="section">
                 <h2>3. 狙うための最小時間</h2>
                 <div class="info-box">
-                    💡 睡眠タイプ＝(当日の各睡眠タイプの％)ー(過去30回の平均％) が一番大きい睡眠タイプ
+                    💡 睡眠タイプ＝(当日の各睡眠タイプの％)ー(過去30回の各睡眠タイプの平均％) が一番大きい睡眠タイプ
                 </div>
 
                 <!-- 睡眠時間設定 -->
@@ -1603,7 +1316,49 @@
             updateAllThresholds();
         }
 
-        // adjustHistoryGridWidth関数は不要になったので削除（2行構成に変更）
+        function adjustHistoryGridWidth() {
+            const width = window.innerWidth;
+            let dateWidth, splitWidth, percentWidth, gap;
+
+            if (width < 600) {
+                // スマホサイズ - 1行に収める
+                dateWidth = '0.08fr';
+                splitWidth = '0.1fr';
+                percentWidth = '0.85fr';
+                gap = '2px';
+            } else if (width < 900) {
+                // タブレットサイズ
+                dateWidth = '0.12fr';
+                splitWidth = '0.15fr';
+                percentWidth = '1fr';
+                gap = '3px';
+            } else {
+                // PC サイズ（余裕がある場合）
+                dateWidth = '0.1fr';
+                splitWidth = '0.12fr';
+                percentWidth = '0.95fr';
+                gap = '4px';
+            }
+
+            // スタイル要素があればそれを更新、なければ新規作成
+            let style = document.getElementById('dynamicHistoryStyle');
+            if (!style) {
+                style = document.createElement('style');
+                style.id = 'dynamicHistoryStyle';
+                document.head.appendChild(style);
+            }
+
+            style.textContent = `
+                .history-input-row {
+                    grid-template-columns: ${dateWidth} ${splitWidth} ${percentWidth} ${percentWidth} ${percentWidth} !important;
+                    gap: ${gap} !important;
+                }
+                .history-grid-header {
+                    grid-template-columns: ${dateWidth} ${splitWidth} ${percentWidth} ${percentWidth} ${percentWidth} !important;
+                    gap: ${gap} !important;
+                }
+            `;
+        }
 
         function generateDateStrings() {
             const dates = [];
@@ -1631,6 +1386,9 @@
         function initializeHistoryRows() {
             const container = document.getElementById('historyInputContainer');
             container.innerHTML = '';
+
+            // ウィンドウ幅に応じてグリッド幅を調整
+            adjustHistoryGridWidth();
 
             const dates = generateDateStrings();
 
@@ -1663,6 +1421,7 @@
                     <div class="history-input-field">
                         <label>うとうと %</label>
                         <input type="number" class="history-utouto" min="0" max="100" placeholder="0" value="${data.utouto}" data-index="${i}">
+                    </div>
                     </div>
                     <div class="history-input-field">
                         <label>すやすや %</label>
@@ -1728,12 +1487,37 @@
                 if (!result) return;
             }
 
-            // 最初の行に挿入
-            if (document.querySelector('.history-utouto')) {
-                document.querySelector('.history-utouto').value = u;
-                document.querySelector('.history-suyasuya').value = s;
-                document.querySelector('.history-gussuri').value = g;
+            // 確認ポップアップ：一番古いデータが削除されることを通知
+            const confirmDelete = confirm('一番古いもの（日付30）が消えます。誤入力ではないですか？\n\n「OK」で保存、「キャンセル」で戻ります。');
+            if (!confirmDelete) return;
+
+            // 現在のデータを取得
+            const dateInputs = document.querySelectorAll('.history-date-input');
+            const splitInputs = document.querySelectorAll('.history-split');
+            const utouInputs = document.querySelectorAll('.history-utouto');
+            const suyasuyaInputs = document.querySelectorAll('.history-suyasuya');
+            const gussiriInputs = document.querySelectorAll('.history-gussuri');
+
+            // 全データを1つずつ下にずらす（最後の行は削除）
+            for (let i = 29; i > 0; i--) {
+                dateInputs[i].value = dateInputs[i - 1].value;
+                splitInputs[i].value = splitInputs[i - 1].value;
+                utouInputs[i].value = utouInputs[i - 1].value;
+                suyasuyaInputs[i].value = suyasuyaInputs[i - 1].value;
+                gussiriInputs[i].value = gussiriInputs[i - 1].value;
             }
+
+            // 日付1に新しいデータを入力
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            const dateStr = `${month}/${day}`;
+
+            dateInputs[0].value = dateStr;
+            splitInputs[0].value = '一括';
+            utouInputs[0].value = u;
+            suyasuyaInputs[0].value = s;
+            gussiriInputs[0].value = g;
 
             updateHistoryData();
 
@@ -1819,7 +1603,6 @@
                 const encrypted = btoa(utf8Data);
                 
                 document.getElementById('backupText').value = encrypted;
-                alert('バックアップテキストを作成しました！');
             } catch (e) {
                 alert('バックアップの作成に失敗しました。');
                 console.error('Backup error:', e);
@@ -1847,9 +1630,8 @@
             }
 
             try {
-                // Base64デコード（UTF-8対応）
-                const utf8Data = atob(encryptedText);
-                const decrypted = decodeURIComponent(escape(utf8Data));
+                // Base64デコード
+                const decrypted = atob(encryptedText);
                 const allData = JSON.parse(decrypted);
 
                 if (!Array.isArray(allData) || allData.length !== 30) {
@@ -1857,43 +1639,16 @@
                     return;
                 }
 
-                // データ取得
-                const dateInputs = document.querySelectorAll('.history-date-input');
-                const splitInputs = document.querySelectorAll('.history-split');
-                const utouInputs = document.querySelectorAll('.history-utouto');
-                const suyasuyaInputs = document.querySelectorAll('.history-suyasuya');
-                const gussiriInputs = document.querySelectorAll('.history-gussuri');
-
                 // データを復旧
+                const inputs = document.querySelectorAll('.history-utouto');
                 for (let i = 0; i < 30; i++) {
                     const item = allData[i];
-                    // 新形式：[date, split, utouto, suyasuya, gussuri]
-                    // 旧形式：[utouto, suyasuya, gussuri, split]
-                    let date, split, u, s, g;
-                    
-                    if (item.length === 5) {
-                        // 新形式
-                        [date, split, u, s, g] = item;
-                    } else {
-                        // 旧形式（互換性のため）
-                        [u, s, g, split] = item;
-                        date = '';
-                    }
-                    
-                    if (dateInputs[i]) {
-                        dateInputs[i].value = date || '';
-                    }
-                    if (splitInputs[i]) {
-                        splitInputs[i].value = split || '一括';
-                    }
-                    if (utouInputs[i]) {
-                        utouInputs[i].value = u || '';
-                    }
-                    if (suyasuyaInputs[i]) {
-                        suyasuyaInputs[i].value = s || '';
-                    }
-                    if (gussiriInputs[i]) {
-                        gussiriInputs[i].value = g || '';
+                    const [u, s, g, split] = Array.isArray(item) ? item : [item, 0, 0, '一括'];
+                    document.querySelectorAll('.history-utouto')[i].value = u || '';
+                    document.querySelectorAll('.history-suyasuya')[i].value = s || '';
+                    document.querySelectorAll('.history-gussuri')[i].value = g || '';
+                    if (document.querySelectorAll('.history-split')[i]) {
+                        document.querySelectorAll('.history-split')[i].value = split || '一括';
                     }
                 }
 
@@ -2008,7 +1763,8 @@
             }
         }
 
-        // adjustHistoryGridWidthのリスナーは不要になったので削除
+        // ウィンドウリサイズ時にグリッド幅を調整
+        window.addEventListener('resize', adjustHistoryGridWidth);
 
     </script>
 </body>
