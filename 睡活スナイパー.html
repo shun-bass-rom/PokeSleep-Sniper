@@ -1463,8 +1463,8 @@
             const dates = [];
             const today = new Date();
 
-            // 今日から30日前までを逆順で生成（1番目が今日）
-            for (let i = 0; i < 30; i++) {
+            // 昨日から29日前までを逆順で生成（1番目が昨日）
+            for (let i = 1; i < 31; i++) {
                 const date = new Date(today);
                 date.setDate(date.getDate() - i);
                 const month = date.getMonth() + 1;
@@ -1727,8 +1727,9 @@
             }
 
             try {
-                // Base64デコード
-                const decrypted = atob(encryptedText);
+                // Base64デコード（UTF-8対応）
+                const utf8Data = atob(encryptedText);
+                const decrypted = decodeURIComponent(escape(utf8Data));
                 const allData = JSON.parse(decrypted);
 
                 if (!Array.isArray(allData) || allData.length !== 30) {
@@ -1736,16 +1737,48 @@
                     return;
                 }
 
+                // データ取得
+                const dateInputs = document.querySelectorAll('.history-date-input');
+                const splitInputs = document.querySelectorAll('.history-split');
+                const utouInputs = document.querySelectorAll('.history-utouto');
+                const suyasuyaInputs = document.querySelectorAll('.history-suyasuya');
+                const gussiriInputs = document.querySelectorAll('.history-gussuri');
+
                 // データを復旧
-                const inputs = document.querySelectorAll('.history-utouto');
                 for (let i = 0; i < 30; i++) {
                     const item = allData[i];
-                    const [u, s, g, split] = Array.isArray(item) ? item : [item, 0, 0, '一括'];
-                    document.querySelectorAll('.history-utouto')[i].value = u || '';
-                    document.querySelectorAll('.history-suyasuya')[i].value = s || '';
-                    document.querySelectorAll('.history-gussuri')[i].value = g || '';
-                    if (document.querySelectorAll('.history-split')[i]) {
-                        document.querySelectorAll('.history-split')[i].value = split || '一括';
+                    // 新形式：[date, split, utouto, suyasuya, gussuri]
+                    let date, split, u, s, g;
+                    
+                    if (item.length === 5) {
+                        // 新形式
+                        [date, split, u, s, g] = item;
+                    } else if (item.length === 4) {
+                        // 旧形式（互換性のため）
+                        [u, s, g, split] = item;
+                        date = '';
+                    } else {
+                        date = '';
+                        split = '一括';
+                        u = item[0] || 0;
+                        s = item[1] || 0;
+                        g = item[2] || 0;
+                    }
+                    
+                    if (dateInputs[i]) {
+                        dateInputs[i].value = date || '';
+                    }
+                    if (splitInputs[i]) {
+                        splitInputs[i].value = split || '一括';
+                    }
+                    if (utouInputs[i]) {
+                        utouInputs[i].value = u || '';
+                    }
+                    if (suyasuyaInputs[i]) {
+                        suyasuyaInputs[i].value = s || '';
+                    }
+                    if (gussiriInputs[i]) {
+                        gussiriInputs[i].value = g || '';
                     }
                 }
 
